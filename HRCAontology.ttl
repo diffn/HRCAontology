@@ -1,0 +1,3091 @@
+@prefix : <http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/> .
+
+<http://www.hrca.org/ontology/HRCAontology> rdf:type owl:Ontology ;
+                                             owl:versionIRI <http://www.hrca.org/ontology/HRCAontology/3.0> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator
+:priority_indicator rdf:type owl:AnnotationProperty ;
+                    rdfs:comment "用于描述优先级相关指标的分组标签，不参与推理" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_variable
+:priority_indicator_variable rdf:type owl:AnnotationProperty ;
+                             rdfs:comment "用于描述优先级相关变量的分组标签，不参与推理" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_weight
+:priority_indicator_weight rdf:type owl:AnnotationProperty ;
+                           rdfs:comment "用于描述优先级相关变量权重的分组标签，不参与推理" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/allocatedTo
+:allocatedTo rdf:type owl:ObjectProperty ;
+             rdfs:domain :AssemblyExecution ,
+                         :AssemblyTask ,
+                         :HRCAProcess ;
+             rdfs:range :Agent ,
+                        :Component ,
+                        :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/assembledInto
+:assembledInto rdf:type owl:ObjectProperty ;
+               rdfs:domain :AssemblyTask ;
+               rdfs:range :Assembly ,
+                          :Part .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/assemblyOfProduct
+:assemblyOfProduct rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Assembly ,
+                               :ProductData ;
+                   rdfs:range :Product ,
+                              :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/candidateAgent
+:candidateAgent rdf:type owl:ObjectProperty ;
+                rdfs:domain :AssemblyExecution ,
+                            :AssemblyTask ,
+                            :HRCAProcess ;
+                rdfs:range :Agent ,
+                           :Component ,
+                           :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/capabilityOfType
+:capabilityOfType rdf:type owl:ObjectProperty ;
+                  rdfs:domain :AssemblyPreparation ,
+                              :Capability ,
+                              :HRCAProcess ,
+                              :TaskAllocation ;
+                  rdfs:range :AssemblyPreparation ,
+                             :CapabilityType ,
+                             :HRCAProcess ,
+                             :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/containsComponent
+:containsComponent rdf:type owl:ObjectProperty ;
+                   rdfs:domain :HRCASystem ,
+                               :Module ;
+                   rdfs:range :Component ,
+                              :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/executedInWorkcell
+:executedInWorkcell rdf:type owl:ObjectProperty ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range :Component ,
+                               :HRCASystem ,
+                               :Workcell .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasAgent
+:hasAgent rdf:type owl:ObjectProperty ;
+          rdfs:domain :Component ,
+                      :HRCASystem ,
+                      :Workcell ;
+          rdfs:range :Agent ,
+                     :Component ,
+                     :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasArchitecture
+:hasArchitecture rdf:type owl:ObjectProperty ;
+                 rdfs:domain :HRCASystem ;
+                 rdfs:range :Architecture ,
+                            :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasAssemblyConstraint
+:hasAssemblyConstraint rdf:type owl:ObjectProperty ;
+                       rdfs:domain :AssemblyRelation ,
+                                   :ProductData ;
+                       rdfs:range :AssemblyConstraint ,
+                                  :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasAssemblyDirection
+:hasAssemblyDirection rdf:type owl:ObjectProperty ;
+                      rdfs:domain :AssemblyRelation ,
+                                  :ProductData ;
+                      rdfs:range :AssemblyDirection ,
+                                 :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasAssemblyRelation
+:hasAssemblyRelation rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Assembly ,
+                                 :Product ,
+                                 :ProductData ;
+                     rdfs:range :AssemblyRelation ,
+                                :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasAssemblyTask
+:hasAssemblyTask rdf:type owl:ObjectProperty ;
+                 rdfs:domain :AssemblyExecution ;
+                 rdfs:range :AssemblyTask .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasCapability
+:hasCapability rdf:type owl:ObjectProperty ;
+               rdfs:domain :Agent ,
+                           :Component ,
+                           :HRCASystem ;
+               rdfs:range :AssemblyPreparation ,
+                          :Capability ,
+                          :HRCAProcess ,
+                          :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasComponent
+:hasComponent rdf:type owl:ObjectProperty ;
+              rdfs:domain :HRCASystem ;
+              rdfs:range :Component ,
+                         :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasContactFace
+:hasContactFace rdf:type owl:ObjectProperty ;
+                rdfs:domain :Part ,
+                            :ProductData ;
+                rdfs:range :ContactFace ,
+                           :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasGeomRep
+:hasGeomRep rdf:type owl:ObjectProperty ;
+            rdfs:domain :Part ,
+                        :ProductData ;
+            rdfs:range :GeometricRepresentation ,
+                       :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasGlobalPriorityPrecedence
+:hasGlobalPriorityPrecedence rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Assembly ,
+                                         :Part ,
+                                         :ProductData ;
+                             rdfs:range :Assembly ,
+                                        :Part ,
+                                        :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasLocalPriorityPrecedence
+:hasLocalPriorityPrecedence rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Part ,
+                                        :ProductData ;
+                            rdfs:range :Part ,
+                                       :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasModule
+:hasModule rdf:type owl:ObjectProperty ;
+           rdfs:domain :HRCASystem ;
+           rdfs:range :HRCASystem ,
+                      :Module .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:domain :Assembly ,
+                     :Product ,
+                     :ProductData ;
+         rdfs:range :Part ,
+                    :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasPerceptionStep
+:hasPerceptionStep rdf:type owl:ObjectProperty ;
+                   rdfs:domain :AssemblyExecution ,
+                               :AssemblyTask ,
+                               :HRCAProcess ;
+                   rdfs:range :AssemblyExecution ,
+                              :HRCAProcess ,
+                              :ScenePerception .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasPreparationStep
+:hasPreparationStep rdf:type owl:ObjectProperty ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range :AssemblyPreparation ,
+                               :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasRequirement
+:hasRequirement rdf:type owl:ObjectProperty ;
+                rdfs:domain :AssemblyRelation ,
+                            :ProductData ;
+                rdfs:range :AssemblyRequirement ,
+                           :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasSensor
+:hasSensor rdf:type owl:ObjectProperty ;
+           rdfs:domain :Component ,
+                       :HRCASystem ;
+           rdfs:range :Component ,
+                      :HRCASystem ,
+                      :Sensor .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/hasSubAssembly
+:hasSubAssembly rdf:type owl:ObjectProperty ;
+                rdfs:domain :Product ,
+                            :ProductData ;
+                rdfs:range :Assembly ,
+                           :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/isRealizedByOperation
+:isRealizedByOperation rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :realizesTask ;
+                       rdfs:domain :AssemblyExecution ,
+                                   :AssemblyTask ,
+                                   :HRCAProcess ;
+                       rdfs:range :AssemblyExecution ,
+                                  :HRCAProcess ,
+                                  :OperationExecution .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/locatedInWorkcell
+:locatedInWorkcell rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Component ,
+                               :HRCASystem ;
+                   rdfs:range :Component ,
+                              :HRCASystem ,
+                              :Workcell .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/matesWith
+:matesWith rdf:type owl:ObjectProperty ,
+                    owl:SymmetricProperty ;
+           rdfs:domain :Part ,
+                       :ProductData ;
+           rdfs:range :Part ,
+                      :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/operatesOnPart
+:operatesOnPart rdf:type owl:ObjectProperty ;
+                rdfs:domain :AssemblyTask ;
+                rdfs:range :Assembly ,
+                           :Part .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/partOfAssembly
+:partOfAssembly rdf:type owl:ObjectProperty ;
+                rdfs:domain :Part ,
+                            :ProductData ;
+                rdfs:range :Assembly ,
+                           :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/partOfProduct
+:partOfProduct rdf:type owl:ObjectProperty ;
+               rdfs:domain :Part ,
+                           :ProductData ;
+               rdfs:range :Product ,
+                          :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/precedesTask
+:precedesTask rdf:type owl:ObjectProperty ,
+                       owl:TransitiveProperty ;
+              rdfs:domain :AssemblyExecution ,
+                          :AssemblyTask ,
+                          :HRCAProcess ;
+              rdfs:range :AssemblyExecution ,
+                         :AssemblyTask ,
+                         :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/realizesTask
+:realizesTask rdf:type owl:ObjectProperty ;
+              rdfs:domain :AssemblyExecution ,
+                          :HRCAProcess ,
+                          :OperationExecution ;
+              rdfs:range :AssemblyExecution ,
+                         :AssemblyTask ,
+                         :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/relatesPartA
+:relatesPartA rdf:type owl:ObjectProperty ;
+              rdfs:domain :AssemblyRelation ,
+                          :ProductData ;
+              rdfs:range :Part ,
+                         :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/relatesPartB
+:relatesPartB rdf:type owl:ObjectProperty ;
+              rdfs:domain :AssemblyRelation ,
+                          :ProductData ;
+              rdfs:range :Part ,
+                         :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/requiresCapability
+:requiresCapability rdf:type owl:ObjectProperty ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range :AssemblyPreparation ,
+                               :CapabilityType ,
+                               :HRCAProcess ,
+                               :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/usesAssemblyRelation
+:usesAssemblyRelation rdf:type owl:ObjectProperty ;
+                      rdfs:domain :AssemblyExecution ,
+                                  :AssemblyTask ,
+                                  :HRCAProcess ;
+                      rdfs:range :AssemblyRelation ,
+                                 :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/usesTool
+:usesTool rdf:type owl:ObjectProperty ;
+          rdfs:domain :Agent ,
+                      :Component ,
+                      :HRCASystem ;
+          rdfs:range :Component ,
+                     :HRCASystem ,
+                     :Tool .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyId
+:AssemblyId rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Assembly ,
+                        :ProductData ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyName
+:AssemblyName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Assembly ,
+                          :ProductData ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/EP_norm
+:EP_norm rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :workload_indicator ;
+         rdfs:domain :AssemblyExecution ,
+                     :AssemblyTask ,
+                     :HRCAProcess ;
+         rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/EP_norm_weight
+:EP_norm_weight rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :workload_weight ;
+                rdfs:domain :AssemblyExecution ,
+                            :AssemblyTask ,
+                            :HRCAProcess ;
+                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/EP_raw
+:EP_raw rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :workload_variable ;
+        rdfs:domain :AssemblyExecution ,
+                    :AssemblyTask ,
+                    :HRCAProcess ;
+        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/MC_norm
+:MC_norm rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :workload_indicator ;
+         rdfs:domain :AssemblyExecution ,
+                     :AssemblyTask ,
+                     :HRCAProcess ;
+         rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/MC_norm_weight
+:MC_norm_weight rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :workload_weight ;
+                rdfs:domain :AssemblyExecution ,
+                            :AssemblyTask ,
+                            :HRCAProcess ;
+                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/MC_raw
+:MC_raw rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :workload_variable ;
+        rdfs:domain :AssemblyExecution ,
+                    :AssemblyTask ,
+                    :HRCAProcess ;
+        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/PP_norm
+:PP_norm rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :workload_indicator ;
+         rdfs:domain :AssemblyExecution ,
+                     :AssemblyTask ,
+                     :HRCAProcess ;
+         rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/PP_norm_weight
+:PP_norm_weight rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :workload_weight ;
+                rdfs:domain :AssemblyExecution ,
+                            :AssemblyTask ,
+                            :HRCAProcess ;
+                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/PP_raw
+:PP_raw rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :workload_variable ;
+        rdfs:domain :AssemblyExecution ,
+                    :AssemblyTask ,
+                    :HRCAProcess ;
+        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/alignmentDifficulty
+:alignmentDifficulty rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AssemblyRequirement ,
+                                 :ProductData ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoFeeding
+:autoFeeding rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :auto_indicator ;
+             rdfs:domain :AssemblyExecution ,
+                         :AssemblyTask ,
+                         :HRCAProcess ;
+             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoFeeding_weight
+:autoFeeding_weight rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :auto_indicator_weight ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoJoining
+:autoJoining rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :auto_indicator ;
+             rdfs:domain :AssemblyExecution ,
+                         :AssemblyTask ,
+                         :HRCAProcess ;
+             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoJoining_weight
+:autoJoining_weight rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :auto_indicator_weight ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoMounting
+:autoMounting rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :auto_indicator ;
+              rdfs:domain :AssemblyExecution ,
+                          :AssemblyTask ,
+                          :HRCAProcess ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoMounting_weight
+:autoMounting_weight rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :auto_indicator_weight ;
+                     rdfs:domain :AssemblyExecution ,
+                                 :AssemblyTask ,
+                                 :HRCAProcess ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoPartPhysical
+:autoPartPhysical rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :auto_indicator ;
+                  rdfs:domain :AssemblyExecution ,
+                              :AssemblyTask ,
+                              :HRCAProcess ;
+                  rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoPartPhysical_weight
+:autoPartPhysical_weight rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :auto_indicator_weight ;
+                         rdfs:domain :AssemblyExecution ,
+                                     :AssemblyTask ,
+                                     :HRCAProcess ;
+                         rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoSafety
+:autoSafety rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :auto_indicator ;
+            rdfs:domain :AssemblyExecution ,
+                        :AssemblyTask ,
+                        :HRCAProcess ;
+            rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/autoSafety_weight
+:autoSafety_weight rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :auto_indicator_weight ;
+                   rdfs:domain :AssemblyExecution ,
+                               :AssemblyTask ,
+                               :HRCAProcess ;
+                   rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/auto_indicator
+:auto_indicator rdf:type owl:DatatypeProperty ;
+                rdfs:domain :AssemblyExecution ,
+                            :AssemblyTask ,
+                            :HRCAProcess ;
+                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/auto_indicator_weight
+:auto_indicator_weight rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :AssemblyExecution ,
+                                   :AssemblyTask ,
+                                   :HRCAProcess ;
+                       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/automationPotential
+:automationPotential rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AssemblyExecution ,
+                                 :AssemblyTask ,
+                                 :HRCAProcess ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/capabilityId
+:capabilityId rdf:type owl:DatatypeProperty ;
+              rdfs:domain :AssemblyPreparation ,
+                          :Capability ,
+                          :HRCAProcess ,
+                          :HumanCapability ,
+                          :RobotCapability ,
+                          :TaskAllocation ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/capabilityLevel
+:capabilityLevel rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :AssemblyPreparation ,
+                             :Capability ,
+                             :HRCAProcess ,
+                             :HumanCapability ,
+                             :RobotCapability ,
+                             :TaskAllocation ;
+                 rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/cognitiveDemandLevel
+:cognitiveDemandLevel rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :AssemblyExecution ,
+                                  :AssemblyTask ,
+                                  :HRCAProcess ;
+                      rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/complexity_H
+:complexity_H rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :complexity_indicator_H ;
+              rdfs:domain :AssemblyExecution ,
+                          :AssemblyTask ,
+                          :HRCAProcess ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/complexity_R
+:complexity_R rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :complexity_indicator_R ;
+              rdfs:domain :AssemblyExecution ,
+                          :AssemblyTask ,
+                          :HRCAProcess ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/complexity_indicator_H
+:complexity_indicator_H rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AssemblyExecution ,
+                                    :AssemblyTask ,
+                                    :HRCAProcess ;
+                        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/complexity_indicator_R
+:complexity_indicator_R rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AssemblyExecution ,
+                                    :AssemblyTask ,
+                                    :HRCAProcess ;
+                        rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/complexity_weight_H
+:complexity_weight_H rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AssemblyExecution ,
+                                 :AssemblyTask ,
+                                 :HRCAProcess ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/complexity_weight_R
+:complexity_weight_R rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AssemblyExecution ,
+                                 :AssemblyTask ,
+                                 :HRCAProcess ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/experienceYears
+:experienceYears rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Agent ,
+                             :Component ,
+                             :HRCASystem ,
+                             :Human ;
+                 rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/fragility
+:fragility rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Part ,
+                       :ProductData ;
+           rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/handlingDifficulty_H
+:handlingDifficulty_H rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :complexity_indicator_H ;
+                      rdfs:domain :AssemblyExecution ,
+                                  :AssemblyTask ,
+                                  :HRCAProcess ;
+                      rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/handlingDifficulty_R
+:handlingDifficulty_R rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :complexity_indicator_R ;
+                      rdfs:domain :AssemblyExecution ,
+                                  :AssemblyTask ,
+                                  :HRCAProcess ;
+                      rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/handlingDifficulty_weight_H
+:handlingDifficulty_weight_H rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :complexity_weight_H ;
+                             rdfs:domain :AssemblyExecution ,
+                                         :AssemblyTask ,
+                                         :HRCAProcess ;
+                             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/handlingDifficulty_weight_R
+:handlingDifficulty_weight_R rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :complexity_weight_R ;
+                             rdfs:domain :AssemblyExecution ,
+                                         :AssemblyTask ,
+                                         :HRCAProcess ;
+                             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/ht_auto_variable_partPhysical_mass
+:ht_auto_variable_partPhysical_mass rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/humanId
+:humanId rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Agent ,
+                     :Component ,
+                     :HRCASystem ,
+                     :Human ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/humanName
+:humanName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Agent ,
+                       :Component ,
+                       :HRCASystem ,
+                       :Human ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/insertionDifficulty_H
+:insertionDifficulty_H rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :complexity_indicator_H ;
+                       rdfs:domain :AssemblyExecution ,
+                                   :AssemblyTask ,
+                                   :HRCAProcess ;
+                       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/insertionDifficulty_R
+:insertionDifficulty_R rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf :complexity_indicator_R ;
+                       rdfs:domain :AssemblyExecution ,
+                                   :AssemblyTask ,
+                                   :HRCAProcess ;
+                       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/insertionDifficulty_weight_H
+:insertionDifficulty_weight_H rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf :complexity_weight_H ;
+                              rdfs:domain :AssemblyExecution ,
+                                          :AssemblyTask ,
+                                          :HRCAProcess ;
+                              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/insertionDifficulty_weight_R
+:insertionDifficulty_weight_R rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf :complexity_weight_R ;
+                              rdfs:domain :AssemblyExecution ,
+                                          :AssemblyTask ,
+                                          :HRCAProcess ;
+                              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/insertionForceLevel
+:insertionForceLevel rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AssemblyRequirement ,
+                                 :ProductData ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/jointTypeCode
+:jointTypeCode rdf:type owl:DatatypeProperty ;
+               rdfs:domain :AssemblyRequirement ,
+                           :ProductData ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/mass
+:mass rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Part ,
+                  :ProductData ;
+      rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/maxGripForce
+:maxGripForce rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Component ,
+                          :EndEffector ,
+                          :HRCASystem ,
+                          :Tool ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/maxGripWidth
+:maxGripWidth rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Component ,
+                          :EndEffector ,
+                          :HRCASystem ,
+                          :Tool ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/maxMentalDemand
+:maxMentalDemand rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Agent ,
+                             :Component ,
+                             :HRCASystem ,
+                             :Human ;
+                 rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/maxPayload
+:maxPayload rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Agent ,
+                        :Component ,
+                        :HRCASystem ,
+                        :Robot ;
+            rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/maxPhysicalDemand
+:maxPhysicalDemand rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Agent ,
+                               :Component ,
+                               :HRCASystem ,
+                               :Human ;
+                   rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/maxSpeed
+:maxSpeed rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Agent ,
+                      :Component ,
+                      :HRCASystem ,
+                      :Robot ;
+          rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/needsPressFit
+:needsPressFit rdf:type owl:DatatypeProperty ;
+               rdfs:domain :AssemblyRequirement ,
+                           :ProductData ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/partId
+:partId rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Part ,
+                    :ProductData ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/partName
+:partName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Part ,
+                      :ProductData ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/physicalDemandLevel
+:physicalDemandLevel rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AssemblyExecution ,
+                                 :AssemblyTask ,
+                                 :HRCAProcess ;
+                     rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/positionAccuracy
+:positionAccuracy rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Agent ,
+                              :Component ,
+                              :HRCASystem ,
+                              :Robot ;
+                  rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/precisionDemandLevel
+:precisionDemandLevel rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :AssemblyExecution ,
+                                  :AssemblyTask ,
+                                  :HRCAProcess ;
+                      rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_accuracy
+:priority_indicator_accuracy rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :Assembly ,
+                                         :Part ,
+                                         :ProductData ;
+                             rdfs:range xsd:double ;
+                             :priority_indicator "priority-indicator" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_complexity
+:priority_indicator_complexity rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Assembly ,
+                                           :Part ,
+                                           :ProductData ;
+                               rdfs:range xsd:double ;
+                               :priority_indicator "priority-indicator" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_comprehensive
+:priority_indicator_comprehensive rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Assembly ,
+                                              :Part ,
+                                              :ProductData ;
+                                  rdfs:range xsd:double ;
+                                  :priority_indicator "priority-indicator" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_datum
+:priority_indicator_datum rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Assembly ,
+                                      :Part ,
+                                      :ProductData ;
+                          rdfs:range xsd:double ;
+                          :priority_indicator "priority-indicator" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_neighbor
+:priority_indicator_neighbor rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :Assembly ,
+                                         :Part ,
+                                         :ProductData ;
+                             rdfs:range xsd:double ;
+                             :priority_indicator "priority-indicator" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_indicator_symmetry
+:priority_indicator_symmetry rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :Assembly ,
+                                         :Part ,
+                                         :ProductData ;
+                             rdfs:range xsd:double ;
+                             :priority_indicator "priority-indicator" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_score
+:priority_score rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Assembly ,
+                            :Part ,
+                            :ProductData ;
+                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_variable_accuracy
+:priority_variable_accuracy rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Assembly ,
+                                        :Part ,
+                                        :ProductData ;
+                            rdfs:range xsd:double ;
+                            :priority_indicator_variable "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_variable_complexity
+:priority_variable_complexity rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Assembly ,
+                                          :Part ,
+                                          :ProductData ;
+                              rdfs:range xsd:double ;
+                              :priority_indicator_variable "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_variable_datum
+:priority_variable_datum rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :Assembly ,
+                                     :Part ,
+                                     :ProductData ;
+                         rdfs:range xsd:double ;
+                         :priority_indicator_variable "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_variable_neighbor
+:priority_variable_neighbor rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Assembly ,
+                                        :Part ,
+                                        :ProductData ;
+                            rdfs:range xsd:double ;
+                            :priority_indicator_variable "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_variable_symmetry
+:priority_variable_symmetry rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Assembly ,
+                                        :Part ,
+                                        :ProductData ;
+                            rdfs:range xsd:double ;
+                            :priority_indicator_variable "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_weight_accuracy
+:priority_weight_accuracy rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Assembly ,
+                                      :Part ,
+                                      :ProductData ;
+                          rdfs:range xsd:double ;
+                          :priority_indicator_weight "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_weight_complexity
+:priority_weight_complexity rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Assembly ,
+                                        :Part ,
+                                        :ProductData ;
+                            rdfs:range xsd:double ;
+                            :priority_indicator_weight "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_weight_datum
+:priority_weight_datum rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Assembly ,
+                                   :Part ,
+                                   :ProductData ;
+                       rdfs:range xsd:double ;
+                       :priority_indicator_weight "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_weight_neighbor
+:priority_weight_neighbor rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Assembly ,
+                                      :Part ,
+                                      :ProductData ;
+                          rdfs:range xsd:double ;
+                          :priority_indicator_weight "priority-indicator-variable" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/priority_weight_symmetry
+:priority_weight_symmetry rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Assembly ,
+                                      :Part ,
+                                      :ProductData ;
+                          rdfs:range xsd:double ;
+                          :priority_indicator_weight "priority-indicator-weight" .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/productId
+:productId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Product ,
+                       :ProductData ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/productName
+:productName rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Product ,
+                         :ProductData ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/reachRadius
+:reachRadius rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Agent ,
+                         :Component ,
+                         :HRCASystem ,
+                         :Robot ;
+             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/robotId
+:robotId rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Agent ,
+                     :Component ,
+                     :HRCASystem ,
+                     :Robot ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/robotName
+:robotName rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Agent ,
+                       :Component ,
+                       :HRCASystem ,
+                       :Robot ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/safetyRated
+:safetyRated rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Agent ,
+                         :Component ,
+                         :HRCASystem ,
+                         :Robot ;
+             rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/sizeX
+:sizeX rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Part ,
+                   :ProductData ;
+       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/sizeY
+:sizeY rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Part ,
+                   :ProductData ;
+       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/sizeZ
+:sizeZ rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Part ,
+                   :ProductData ;
+       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/skillLevelAssembly
+:skillLevelAssembly rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Agent ,
+                                :Component ,
+                                :HRCASystem ,
+                                :Human ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/symmetryDegree
+:symmetryDegree rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Part ,
+                            :ProductData ;
+                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskId
+:taskId rdf:type owl:DatatypeProperty ;
+        rdfs:domain :AssemblyExecution ,
+                    :AssemblyTask ,
+                    :HRCAProcess ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskMentalDemand
+:taskMentalDemand rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :AssemblyExecution ,
+                              :AssemblyTask ,
+                              :HRCAProcess ;
+                  rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskName
+:taskName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :AssemblyExecution ,
+                      :AssemblyTask ,
+                      :HRCAProcess ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskPhysicalDemand
+:taskPhysicalDemand rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskPriority
+:taskPriority rdf:type owl:DatatypeProperty ;
+              rdfs:domain :AssemblyExecution ,
+                          :AssemblyTask ,
+                          :HRCAProcess ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskScore_H
+:taskScore_H rdf:type owl:DatatypeProperty ;
+             rdfs:domain :AssemblyTask ;
+             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskScore_R
+:taskScore_R rdf:type owl:DatatypeProperty ;
+             rdfs:domain :AssemblyTask ;
+             rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/taskWorkload
+:taskWorkload rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :workload_indicator ;
+              rdfs:domain :AssemblyExecution ,
+                          :AssemblyTask ,
+                          :HRCAProcess ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/toleranceClass
+:toleranceClass rdf:type owl:DatatypeProperty ;
+                rdfs:domain :AssemblyRequirement ,
+                            :ProductData ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/toolId
+:toolId rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Component ,
+                    :HRCASystem ,
+                    :Tool ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/toolType
+:toolType rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Component ,
+                      :HRCASystem ,
+                      :Tool ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/workload_indicator
+:workload_indicator rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :AssemblyExecution ,
+                                :AssemblyTask ,
+                                :HRCAProcess ;
+                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/workload_variable
+:workload_variable rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :AssemblyExecution ,
+                               :AssemblyTask ,
+                               :HRCAProcess ;
+                   rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/workload_weight
+:workload_weight rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :AssemblyExecution ,
+                             :AssemblyTask ,
+                             :HRCAProcess ;
+                 rdfs:range xsd:double .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Agent
+:Agent rdf:type owl:Class ;
+       rdfs:subClassOf :Component ,
+                       :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Architecture
+:Architecture rdf:type owl:Class ;
+              rdfs:subClassOf :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Assembly
+:Assembly rdf:type owl:Class ;
+          rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyConstraint
+:AssemblyConstraint rdf:type owl:Class ;
+                    rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyDirection
+:AssemblyDirection rdf:type owl:Class ;
+                   rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyExecution
+:AssemblyExecution rdf:type owl:Class ;
+                   rdfs:subClassOf :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyPreparation
+:AssemblyPreparation rdf:type owl:Class ;
+                     rdfs:subClassOf :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyRelation
+:AssemblyRelation rdf:type owl:Class ;
+                  rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyRequirement
+:AssemblyRequirement rdf:type owl:Class ;
+                     rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/AssemblyTask
+:AssemblyTask rdf:type owl:Class ;
+              rdfs:subClassOf :AssemblyExecution .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Capability
+:Capability rdf:type owl:Class ;
+            rdfs:subClassOf :AssemblyPreparation ,
+                            :HRCAProcess ,
+                            :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/CapabilityType
+:CapabilityType rdf:type owl:Class ;
+                rdfs:subClassOf :AssemblyPreparation ,
+                                :HRCAProcess ,
+                                :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/CognitiveCapabilityType
+:CognitiveCapabilityType rdf:type owl:Class ;
+                         rdfs:subClassOf :AssemblyPreparation ,
+                                         :CapabilityType ,
+                                         :HRCAProcess ,
+                                         :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Component
+:Component rdf:type owl:Class ;
+           rdfs:subClassOf :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/ContactFace
+:ContactFace rdf:type owl:Class ;
+             rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/EndEffector
+:EndEffector rdf:type owl:Class ;
+             rdfs:subClassOf :Component ,
+                             :HRCASystem ,
+                             :Tool .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Fixture
+:Fixture rdf:type owl:Class ;
+         rdfs:subClassOf :Component ,
+                         :HRCASystem ,
+                         :Tool .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/GeometricRepresentation
+:GeometricRepresentation rdf:type owl:Class ;
+                         rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HRCAProcess
+:HRCAProcess rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HRCASystem
+:HRCASystem rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HandlingTask
+:HandlingTask rdf:type owl:Class ;
+              rdfs:subClassOf :AssemblyTask .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Human
+:Human rdf:type owl:Class ;
+       rdfs:subClassOf :Agent ,
+                       :Component ,
+                       :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HumanCapability
+:HumanCapability rdf:type owl:Class ;
+                 rdfs:subClassOf :AssemblyPreparation ,
+                                 :Capability ,
+                                 :HRCAProcess ,
+                                 :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Module
+:Module rdf:type owl:Class ;
+        rdfs:subClassOf :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OperationExecution
+:OperationExecution rdf:type owl:Class ;
+                    rdfs:subClassOf :AssemblyExecution ,
+                                    :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OperationTask
+:OperationTask rdf:type owl:Class ;
+               rdfs:subClassOf :AssemblyTask .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Part
+:Part rdf:type owl:Class ;
+      rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/PhysicalCapabilityType
+:PhysicalCapabilityType rdf:type owl:Class ;
+                        rdfs:subClassOf :AssemblyPreparation ,
+                                        :CapabilityType ,
+                                        :HRCAProcess ,
+                                        :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/PrecisionCapabilityType
+:PrecisionCapabilityType rdf:type owl:Class ;
+                         rdfs:subClassOf :AssemblyPreparation ,
+                                         :CapabilityType ,
+                                         :HRCAProcess ,
+                                         :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Product
+:Product rdf:type owl:Class ;
+         rdfs:subClassOf :ProductData .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/ProductData
+:ProductData rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/ProductDataExtraction
+:ProductDataExtraction rdf:type owl:Class ;
+                       rdfs:subClassOf :AssemblyPreparation ,
+                                       :HRCAProcess .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Robot
+:Robot rdf:type owl:Class ;
+       rdfs:subClassOf :Agent ,
+                       :Component ,
+                       :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/RobotCapability
+:RobotCapability rdf:type owl:Class ;
+                 rdfs:subClassOf :AssemblyPreparation ,
+                                 :Capability ,
+                                 :HRCAProcess ,
+                                 :TaskAllocation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/ScenePerception
+:ScenePerception rdf:type owl:Class ;
+                 rdfs:subClassOf :AssemblyExecution .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Sensor
+:Sensor rdf:type owl:Class ;
+        rdfs:subClassOf :Component ,
+                        :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/SequencePlanning
+:SequencePlanning rdf:type owl:Class ;
+                  rdfs:subClassOf :AssemblyPreparation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/TaskAllocation
+:TaskAllocation rdf:type owl:Class ;
+                rdfs:subClassOf :AssemblyPreparation .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Tool
+:Tool rdf:type owl:Class ;
+      rdfs:subClassOf :Component ,
+                      :HRCASystem .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/VisionSensor
+:VisionSensor rdf:type owl:Class ;
+              rdfs:subClassOf :Component ,
+                              :HRCASystem ,
+                              :Sensor .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/Workcell
+:Workcell rdf:type owl:Class ;
+          rdfs:subClassOf :Component ,
+                          :HRCASystem .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part1_RetainerGuidePin
+:HT_part1_RetainerGuidePin rdf:type owl:NamedIndividual ,
+                                    :HandlingTask ;
+                           :precedesTask :OT_part1_RetainerGuidePin .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part2_RetainerBallSeat
+:HT_part2_RetainerBallSeat rdf:type owl:NamedIndividual ,
+                                    :HandlingTask ;
+                           :precedesTask :OT_part2_RetainerBallSeat .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part3_RetainerSteelBall
+:HT_part3_RetainerSteelBall rdf:type owl:NamedIndividual ,
+                                     :HandlingTask ;
+                            :precedesTask :OT_part3_RetainerSteelBall .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part4_PumpBody
+:HT_part4_PumpBody rdf:type owl:NamedIndividual ,
+                            :HandlingTask ;
+                   :precedesTask :OT_part4_PumpBody .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part5_TurnPlate
+:HT_part5_TurnPlate rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part5_TurnPlate .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_1
+:HT_part6_Slipper_1 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_1 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_2
+:HT_part6_Slipper_2 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_2 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_3
+:HT_part6_Slipper_3 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_3 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_4
+:HT_part6_Slipper_4 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_4 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_5
+:HT_part6_Slipper_5 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_5 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_6
+:HT_part6_Slipper_6 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_6 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part6_Slipper_7
+:HT_part6_Slipper_7 rdf:type owl:NamedIndividual ,
+                             :HandlingTask ;
+                    :precedesTask :OT_part6_Slipper_7 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/HT_part7_CylinderBlock
+:HT_part7_CylinderBlock rdf:type owl:NamedIndividual ,
+                                 :HandlingTask ;
+                        :precedesTask :OT_part7_CylinderBlock .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part1_RetainerGuidePin
+:OT_part1_RetainerGuidePin rdf:type owl:NamedIndividual ,
+                                    :OperationTask ;
+                           :precedesTask :HT_part2_RetainerBallSeat .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part2_RetainerBallSeat
+:OT_part2_RetainerBallSeat rdf:type owl:NamedIndividual ,
+                                    :OperationTask ;
+                           :precedesTask :HT_part3_RetainerSteelBall .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part3_RetainerSteelBall
+:OT_part3_RetainerSteelBall rdf:type owl:NamedIndividual ,
+                                     :OperationTask ;
+                            :precedesTask :HT_part5_TurnPlate .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part4_PumpBody
+:OT_part4_PumpBody rdf:type owl:NamedIndividual ,
+                            :OperationTask .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part5_TurnPlate
+:OT_part5_TurnPlate rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_1 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_1
+:OT_part6_Slipper_1 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_4 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_2
+:OT_part6_Slipper_2 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_5 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_3
+:OT_part6_Slipper_3 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part4_PumpBody .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_4
+:OT_part6_Slipper_4 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_7 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_5
+:OT_part6_Slipper_5 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_6 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_6
+:OT_part6_Slipper_6 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_3 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part6_Slipper_7
+:OT_part6_Slipper_7 rdf:type owl:NamedIndividual ,
+                             :OperationTask ;
+                    :precedesTask :HT_part6_Slipper_2 .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/OT_part7_CylinderBlock
+:OT_part7_CylinderBlock rdf:type owl:NamedIndividual ,
+                                 :OperationTask ;
+                        :precedesTask :HT_part1_RetainerGuidePin .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/assy_RetainerAssembly
+:assy_RetainerAssembly rdf:type owl:NamedIndividual ,
+                                :Assembly ,
+                                :Part ,
+                                :Product ,
+                                :ProductData ;
+                       :assemblyOfProduct :prod_PumpMiddle ;
+                       :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                                    :part2_RetainerBallSeat ,
+                                                    :part3_RetainerSteelBall ,
+                                                    :part4_PumpBody ,
+                                                    :part5_TurnPlate ,
+                                                    :part6_Slipper_1 ,
+                                                    :part6_Slipper_2 ,
+                                                    :part6_Slipper_3 ,
+                                                    :part6_Slipper_4 ,
+                                                    :part6_Slipper_5 ,
+                                                    :part6_Slipper_6 ,
+                                                    :part6_Slipper_7 ;
+                       :hasPart :part1_RetainerGuidePin ,
+                                :part2_RetainerBallSeat ,
+                                :part3_RetainerSteelBall ;
+                       :AssemblyId "A1" ;
+                       :AssemblyName "RetainerAssembly" ;
+                       :priority_indicator_accuracy 1.0 ;
+                       :priority_indicator_complexity "1.0"^^xsd:double ;
+                       :priority_indicator_comprehensive 0.6100 ;
+                       :priority_indicator_datum 0.250 ;
+                       :priority_indicator_neighbor 0.500 ;
+                       :priority_indicator_symmetry 0.3 ;
+                       :priority_score 0.6100 ;
+                       :priority_variable_accuracy "5.0"^^xsd:double ;
+                       :priority_variable_complexity "1.0"^^xsd:double ;
+                       :priority_variable_datum "1.0"^^xsd:double ;
+                       :priority_variable_neighbor "2.0"^^xsd:double ;
+                       :priority_variable_symmetry "2.0"^^xsd:double ;
+                       :priority_weight_accuracy "0.2"^^xsd:double ;
+                       :priority_weight_complexity "0.2"^^xsd:double ;
+                       :priority_weight_datum "0.2"^^xsd:double ;
+                       :priority_weight_neighbor "0.2"^^xsd:double ;
+                       :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part1_RetainerGuidePin
+:part1_RetainerGuidePin rdf:type owl:NamedIndividual ,
+                                 :Assembly ,
+                                 :Part ,
+                                 :ProductData ;
+                        :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                                     :part2_RetainerBallSeat ,
+                                                     :part3_RetainerSteelBall ,
+                                                     :part4_PumpBody ,
+                                                     :part5_TurnPlate ,
+                                                     :part6_Slipper_1 ,
+                                                     :part6_Slipper_2 ,
+                                                     :part6_Slipper_3 ,
+                                                     :part6_Slipper_4 ,
+                                                     :part6_Slipper_5 ,
+                                                     :part6_Slipper_6 ,
+                                                     :part6_Slipper_7 ;
+                        :hasLocalPriorityPrecedence :part2_RetainerBallSeat ,
+                                                    :part3_RetainerSteelBall ;
+                        :partOfAssembly :assy_RetainerAssembly ;
+                        :partOfProduct :prod_PumpMiddle ;
+                        :partId "P1" ;
+                        :partName "RetainerGuidePin" ;
+                        :priority_indicator_accuracy 1.0 ;
+                        :priority_indicator_complexity "0.4"^^xsd:double ;
+                        :priority_indicator_comprehensive 0.5400 ;
+                        :priority_indicator_datum 0.500 ;
+                        :priority_indicator_neighbor 0.500 ;
+                        :priority_indicator_symmetry 0.3 ;
+                        :priority_score 0.5400 ;
+                        :priority_variable_accuracy "5.0"^^xsd:double ;
+                        :priority_variable_complexity "0.4"^^xsd:double ;
+                        :priority_variable_datum "2.0"^^xsd:double ;
+                        :priority_variable_neighbor "2.0"^^xsd:double ;
+                        :priority_variable_symmetry "2.0"^^xsd:double ;
+                        :priority_weight_accuracy "0.2"^^xsd:double ;
+                        :priority_weight_complexity "0.2"^^xsd:double ;
+                        :priority_weight_datum "0.2"^^xsd:double ;
+                        :priority_weight_neighbor "0.2"^^xsd:double ;
+                        :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part2_RetainerBallSeat
+:part2_RetainerBallSeat rdf:type owl:NamedIndividual ,
+                                 :Assembly ,
+                                 :Part ,
+                                 :ProductData ;
+                        :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                                     :part2_RetainerBallSeat ,
+                                                     :part3_RetainerSteelBall ,
+                                                     :part4_PumpBody ,
+                                                     :part5_TurnPlate ,
+                                                     :part6_Slipper_1 ,
+                                                     :part6_Slipper_2 ,
+                                                     :part6_Slipper_3 ,
+                                                     :part6_Slipper_4 ,
+                                                     :part6_Slipper_5 ,
+                                                     :part6_Slipper_6 ,
+                                                     :part6_Slipper_7 ;
+                        :hasLocalPriorityPrecedence :part3_RetainerSteelBall ;
+                        :partOfAssembly :assy_RetainerAssembly ;
+                        :partOfProduct :prod_PumpMiddle ;
+                        :partId "P2" ;
+                        :partName "RetainerBallSeat" ;
+                        :priority_indicator_accuracy 0.7 ;
+                        :priority_indicator_complexity "0.6"^^xsd:double ;
+                        :priority_indicator_comprehensive 0.4700 ;
+                        :priority_indicator_datum 0.250 ;
+                        :priority_indicator_neighbor 0.500 ;
+                        :priority_indicator_symmetry 0.3 ;
+                        :priority_score 0.4700 ;
+                        :priority_variable_accuracy "10.0"^^xsd:double ;
+                        :priority_variable_complexity "0.6"^^xsd:double ;
+                        :priority_variable_datum "1.0"^^xsd:double ;
+                        :priority_variable_neighbor "2.0"^^xsd:double ;
+                        :priority_variable_symmetry "2.0"^^xsd:double ;
+                        :priority_weight_accuracy "0.2"^^xsd:double ;
+                        :priority_weight_complexity "0.2"^^xsd:double ;
+                        :priority_weight_datum "0.2"^^xsd:double ;
+                        :priority_weight_neighbor "0.2"^^xsd:double ;
+                        :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part3_RetainerSteelBall
+:part3_RetainerSteelBall rdf:type owl:NamedIndividual ,
+                                  :Assembly ,
+                                  :Part ,
+                                  :ProductData ;
+                         :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                                      :part2_RetainerBallSeat ,
+                                                      :part3_RetainerSteelBall ,
+                                                      :part4_PumpBody ,
+                                                      :part5_TurnPlate ,
+                                                      :part6_Slipper_1 ,
+                                                      :part6_Slipper_2 ,
+                                                      :part6_Slipper_3 ,
+                                                      :part6_Slipper_4 ,
+                                                      :part6_Slipper_5 ,
+                                                      :part6_Slipper_6 ,
+                                                      :part6_Slipper_7 ;
+                         :partOfAssembly :assy_RetainerAssembly ;
+                         :partOfProduct :prod_PumpMiddle ;
+                         :partId "P3" ;
+                         :partName "RetainerSteelBall" ;
+                         :priority_indicator_accuracy 0.7 ;
+                         :priority_indicator_complexity "0.5"^^xsd:double ;
+                         :priority_indicator_comprehensive 0.3900 ;
+                         :priority_indicator_datum 0.250 ;
+                         :priority_indicator_neighbor 0.500 ;
+                         :priority_indicator_symmetry 0.0 ;
+                         :priority_score 0.3900 ;
+                         :priority_variable_accuracy "10.0"^^xsd:double ;
+                         :priority_variable_complexity "0.5"^^xsd:double ;
+                         :priority_variable_datum "1.0"^^xsd:double ;
+                         :priority_variable_neighbor "2.0"^^xsd:double ;
+                         :priority_variable_symmetry "3.0"^^xsd:double ;
+                         :priority_weight_accuracy "0.2"^^xsd:double ;
+                         :priority_weight_complexity "0.2"^^xsd:double ;
+                         :priority_weight_datum "0.2"^^xsd:double ;
+                         :priority_weight_neighbor "0.2"^^xsd:double ;
+                         :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part4_PumpBody
+:part4_PumpBody rdf:type owl:NamedIndividual ,
+                         :Assembly ,
+                         :Part ,
+                         :ProductData ;
+                :partOfProduct :prod_PumpMiddle ;
+                :partId "P4" ;
+                :partName "PumpBody" ;
+                :priority_indicator_accuracy 0.0 ;
+                :priority_indicator_complexity "0.3"^^xsd:double ;
+                :priority_indicator_comprehensive 0.3200 ;
+                :priority_indicator_datum 0.750 ;
+                :priority_indicator_neighbor 0.250 ;
+                :priority_indicator_symmetry 0.3 ;
+                :priority_score 0.3200 ;
+                :priority_variable_accuracy "20.0"^^xsd:double ;
+                :priority_variable_complexity "0.3"^^xsd:double ;
+                :priority_variable_datum "3.0"^^xsd:double ;
+                :priority_variable_neighbor "1.0"^^xsd:double ;
+                :priority_variable_symmetry "2.0"^^xsd:double ;
+                :priority_weight_accuracy "0.2"^^xsd:double ;
+                :priority_weight_complexity "0.2"^^xsd:double ;
+                :priority_weight_datum "0.2"^^xsd:double ;
+                :priority_weight_neighbor "0.2"^^xsd:double ;
+                :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part5_TurnPlate
+:part5_TurnPlate rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                              :part2_RetainerBallSeat ,
+                                              :part3_RetainerSteelBall ,
+                                              :part4_PumpBody ,
+                                              :part6_Slipper_1 ,
+                                              :part6_Slipper_2 ,
+                                              :part6_Slipper_3 ,
+                                              :part6_Slipper_4 ,
+                                              :part6_Slipper_5 ,
+                                              :part6_Slipper_6 ,
+                                              :part6_Slipper_7 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P5" ;
+                 :partName "TurnPlate" ;
+                 :priority_indicator_accuracy 0.0 ;
+                 :priority_indicator_complexity "0.7"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.60 ;
+                 :priority_indicator_datum 1.0 ;
+                 :priority_indicator_neighbor 1.0 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.60 ;
+                 :priority_variable_accuracy "20.0"^^xsd:double ;
+                 :priority_variable_complexity "0.7"^^xsd:double ;
+                 :priority_variable_datum "14.0"^^xsd:double ;
+                 :priority_variable_neighbor "8.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_1
+:part6_Slipper_1 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                              :part2_RetainerBallSeat ,
+                                              :part3_RetainerSteelBall ,
+                                              :part4_PumpBody ,
+                                              :part6_Slipper_2 ,
+                                              :part6_Slipper_3 ,
+                                              :part6_Slipper_4 ,
+                                              :part6_Slipper_5 ,
+                                              :part6_Slipper_6 ,
+                                              :part6_Slipper_7 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-1" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.7"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.5600 ;
+                 :priority_indicator_datum 1.0 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.5600 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.7"^^xsd:double ;
+                 :priority_variable_datum "6.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_2
+:part6_Slipper_2 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part2_RetainerBallSeat ,
+                                              :part3_RetainerSteelBall ,
+                                              :part4_PumpBody ,
+                                              :part6_Slipper_3 ,
+                                              :part6_Slipper_5 ,
+                                              :part6_Slipper_6 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-2" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.55"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.4800 ;
+                 :priority_indicator_datum 0.750 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.4800 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.55"^^xsd:double ;
+                 :priority_variable_datum "3.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_3
+:part6_Slipper_3 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part4_PumpBody ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-3" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.55"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.3300 ;
+                 :priority_indicator_datum 0.000 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.3300 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.55"^^xsd:double ;
+                 :priority_variable_datum "0.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_4
+:part6_Slipper_4 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part1_RetainerGuidePin ,
+                                              :part2_RetainerBallSeat ,
+                                              :part3_RetainerSteelBall ,
+                                              :part4_PumpBody ,
+                                              :part6_Slipper_2 ,
+                                              :part6_Slipper_3 ,
+                                              :part6_Slipper_5 ,
+                                              :part6_Slipper_6 ,
+                                              :part6_Slipper_7 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-4" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.65"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.5500 ;
+                 :priority_indicator_datum 1.0 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.5500 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.65"^^xsd:double ;
+                 :priority_variable_datum "5.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_5
+:part6_Slipper_5 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part3_RetainerSteelBall ,
+                                              :part4_PumpBody ,
+                                              :part6_Slipper_3 ,
+                                              :part6_Slipper_6 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-5" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.55"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.4300 ;
+                 :priority_indicator_datum 0.500 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.4300 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.55"^^xsd:double ;
+                 :priority_variable_datum "2.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_6
+:part6_Slipper_6 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part4_PumpBody ,
+                                              :part6_Slipper_3 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-6" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.55"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.3800 ;
+                 :priority_indicator_datum 0.250 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.3800 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.55"^^xsd:double ;
+                 :priority_variable_datum "1.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part6_Slipper_7
+:part6_Slipper_7 rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Part ,
+                          :ProductData ;
+                 :hasGlobalPriorityPrecedence :part2_RetainerBallSeat ,
+                                              :part3_RetainerSteelBall ,
+                                              :part4_PumpBody ,
+                                              :part6_Slipper_2 ,
+                                              :part6_Slipper_3 ,
+                                              :part6_Slipper_5 ,
+                                              :part6_Slipper_6 ;
+                 :partOfProduct :prod_PumpMiddle ;
+                 :partId "P6-7" ;
+                 :partName "Slipper" ;
+                 :priority_indicator_accuracy 0.3 ;
+                 :priority_indicator_complexity "0.6"^^xsd:double ;
+                 :priority_indicator_comprehensive 0.5400 ;
+                 :priority_indicator_datum 1.000 ;
+                 :priority_indicator_neighbor 0.500 ;
+                 :priority_indicator_symmetry 0.3 ;
+                 :priority_score 0.5400 ;
+                 :priority_variable_accuracy "15.0"^^xsd:double ;
+                 :priority_variable_complexity "0.6"^^xsd:double ;
+                 :priority_variable_datum "4.0"^^xsd:double ;
+                 :priority_variable_neighbor "2.0"^^xsd:double ;
+                 :priority_variable_symmetry "2.0"^^xsd:double ;
+                 :priority_weight_accuracy "0.2"^^xsd:double ;
+                 :priority_weight_complexity "0.2"^^xsd:double ;
+                 :priority_weight_datum "0.2"^^xsd:double ;
+                 :priority_weight_neighbor "0.2"^^xsd:double ;
+                 :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/part7_CylinderBlock
+:part7_CylinderBlock rdf:type owl:NamedIndividual ,
+                              :Assembly ,
+                              :Part ,
+                              :ProductData ;
+                     :hasGlobalPriorityPrecedence :assy_RetainerAssembly ,
+                                                  :part1_RetainerGuidePin ,
+                                                  :part2_RetainerBallSeat ,
+                                                  :part3_RetainerSteelBall ,
+                                                  :part4_PumpBody ,
+                                                  :part5_TurnPlate ,
+                                                  :part6_Slipper_1 ,
+                                                  :part6_Slipper_2 ,
+                                                  :part6_Slipper_3 ,
+                                                  :part6_Slipper_4 ,
+                                                  :part6_Slipper_5 ,
+                                                  :part6_Slipper_6 ,
+                                                  :part6_Slipper_7 ;
+                     :partOfProduct :prod_PumpMiddle ;
+                     :partId "P7" ;
+                     :partName "CylinderBlock" ;
+                     :priority_indicator_accuracy 0.7 ;
+                     :priority_indicator_complexity "0.9"^^xsd:double ;
+                     :priority_indicator_comprehensive 0.78 ;
+                     :priority_indicator_datum 1.0 ;
+                     :priority_indicator_neighbor 1.0 ;
+                     :priority_indicator_symmetry 0.3 ;
+                     :priority_score 0.78 ;
+                     :priority_variable_accuracy "10.0"^^xsd:double ;
+                     :priority_variable_complexity "0.9"^^xsd:double ;
+                     :priority_variable_datum "10.0"^^xsd:double ;
+                     :priority_variable_neighbor "9.0"^^xsd:double ;
+                     :priority_variable_symmetry "2.0"^^xsd:double ;
+                     :priority_weight_accuracy "0.2"^^xsd:double ;
+                     :priority_weight_complexity "0.2"^^xsd:double ;
+                     :priority_weight_datum "0.2"^^xsd:double ;
+                     :priority_weight_neighbor "0.2"^^xsd:double ;
+                     :priority_weight_symmetry "0.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/ays/ontologies/2025/10/untitled-ontology-42/prod_PumpMiddle
+:prod_PumpMiddle rdf:type owl:NamedIndividual ,
+                          :Assembly ,
+                          :Product ,
+                          :ProductData ;
+                 :hasPart :part1_RetainerGuidePin ,
+                          :part2_RetainerBallSeat ,
+                          :part3_RetainerSteelBall ,
+                          :part4_PumpBody ,
+                          :part5_TurnPlate ,
+                          :part6_Slipper_1 ,
+                          :part6_Slipper_2 ,
+                          :part6_Slipper_3 ,
+                          :part6_Slipper_4 ,
+                          :part6_Slipper_5 ,
+                          :part6_Slipper_6 ,
+                          :part6_Slipper_7 ,
+                          :part7_CylinderBlock ;
+                 :hasSubAssembly :assy_RetainerAssembly ;
+                 :productId "Prod1" ;
+                 :productName "PumpMiddle" .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:p1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:p2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:a rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:s1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:s2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:p rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:s rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:pre rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:post rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:fd rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:fn rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:fc rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:fa rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:fs rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:wd rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:wn rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:wc rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:wa rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ws rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t3 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t4 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t5 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:s3 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:F rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:sx rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:y rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:sy rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:x4 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:f4 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:v rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:f rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:t rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:f5 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule7-1:LocalPriorityPrecedence" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Part ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :Part ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :p2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :Assembly ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :a
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :partOfAssembly ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :p1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :partOfAssembly ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :p2 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :p1 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :s1
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :p2 ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :s2
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( :s1
+                                                                                                                                                                                 :s2
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasLocalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule6-2:priorityScore" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_comprehensive ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :F
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :F
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule7-2:GlobalPriorityPrecedence" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :sx
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :y ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :sy
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> ( :sx
+                                                                                                                          :sy
+                                                                                                                        )
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :y
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule4-2:5<accuracy_indicator<=20" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                    rdf:first :x4 ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first 5.0 ;
+                                                                                                               rdf:rest rdf:nil
+                                                                                                             ]
+                                                                                                  ]
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#subtract> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :t1 ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 20.0 ;
+                                                                                                                          rdf:rest ( :x4
+                                                                                                                                   )
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :x4 ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 20.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_accuracy ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :x4
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#divide> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :f4 ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first :t1 ;
+                                                                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first 15.0 ;
+                                                                                                                                                                      rdf:rest rdf:nil
+                                                                                                                                                                    ]
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_accuracy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :f4
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule4-3:accuracy_indicator>20" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_accuracy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :x4
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :x4 ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 20.0 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_accuracy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> 0.0
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule4-1:accuracy_indicator<=5" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_accuracy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :x4
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :x4 ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 5.0 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_accuracy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> 1.0
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule3-1:priority_complexity_indicator" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_complexity ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_complexity ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule1-2:datum_indicator>4" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_datum ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :v ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 4.0 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_datum ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> 1.0
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule1-1:datum_indicator<=4" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                    rdf:first :v ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first 4.0 ;
+                                                                                                               rdf:rest rdf:nil
+                                                                                                             ]
+                                                                                                  ]
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :f ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :v ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 0.25 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_datum ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_datum ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :f
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule2-2:neighbor_indicator>4" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_neighbor ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :v ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first 4.0 ;
+                                                                                                                          rdf:rest rdf:nil
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_neighbor ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> 1.0
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule7-4:Assembly 在前 → 内部所有 Part 在前" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Assembly ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :a
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :partOfAssembly ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :a ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :x
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :x
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule2-1:neighbor_indicator<=4" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                    rdf:first :v ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first 4.0 ;
+                                                                                                               rdf:rest rdf:nil
+                                                                                                             ]
+                                                                                                  ]
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_neighbor ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :f ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first :v ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first 0.25 ;
+                                                                                                                                                rdf:rest rdf:nil
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_neighbor ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :f
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule5-1:symmetry_indicator" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_variable_symmetry ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :v
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#divide> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                               rdf:first :t ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :v ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 3.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                                                             ]
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#subtract> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :f5 ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 1.0 ;
+                                                                                                                                     rdf:rest ( :t
+                                                                                                                                              )
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_symmetry ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :f5
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule7-5:X 在前 → 先于 Assembly 内所有 Part" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Assembly ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :a
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :partOfAssembly ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :p ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :a
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "SQWRL1:priority_part" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Part ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :s
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> ( :x
+                                                                                                    :s
+                                                                                                  )
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#orderByDescending> ;
+                                                                  <http://www.w3.org/2003/11/swrl#arguments> ( :s
+                                                                                                             )
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "SQWRL2:priority_hasGlobalPriorityPrecedence" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :pre ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :post
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#select> ;
+                                                       <http://www.w3.org/2003/11/swrl#arguments> ( :pre
+                                                                                                    :post
+                                                                                                  )
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule7-3:Local->Global" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasLocalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGlobalPriorityPrecedence ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :p1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :p2
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "Rule6-1:priority_comprehensive_indicator" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_datum ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :fd
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_neighbor ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :fn
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_complexity ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :fc
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_accuracy ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :fa
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_symmetry ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :fs
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_weight_datum ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :wd
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_weight_neighbor ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :wn
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_weight_complexity ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :wc
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_weight_accuracy ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument2> :wa
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_weight_symmetry ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#argument2> :ws
+                                                                                                                                                        ] ;
+                                                                                                                                              rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                         rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                                                                                                                     <http://www.w3.org/2003/11/swrl#arguments> ( :t1
+                                                                                                                                                                                                                  :fd
+                                                                                                                                                                                                                  :wd
+                                                                                                                                                                                                                )
+                                                                                                                                                                   ] ;
+                                                                                                                                                         rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                    rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                                                                                                                                <http://www.w3.org/2003/11/swrl#arguments> ( :t2
+                                                                                                                                                                                                                             :fn
+                                                                                                                                                                                                                             :wn
+                                                                                                                                                                                                                           )
+                                                                                                                                                                              ] ;
+                                                                                                                                                                    rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                               rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                                                                                                                                           <http://www.w3.org/2003/11/swrl#arguments> ( :t3
+                                                                                                                                                                                                                                        :fc
+                                                                                                                                                                                                                                        :wc
+                                                                                                                                                                                                                                      )
+                                                                                                                                                                                         ] ;
+                                                                                                                                                                               rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                                                                                                                                                      <http://www.w3.org/2003/11/swrl#arguments> ( :t4
+                                                                                                                                                                                                                                                   :fa
+                                                                                                                                                                                                                                                   :wa
+                                                                                                                                                                                                                                                 )
+                                                                                                                                                                                                    ] ;
+                                                                                                                                                                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                                                 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                                                                                                                                                                 <http://www.w3.org/2003/11/swrl#arguments> ( :t5
+                                                                                                                                                                                                                                                              :fs
+                                                                                                                                                                                                                                                              :ws
+                                                                                                                                                                                                                                                            )
+                                                                                                                                                                                                               ] ;
+                                                                                                                                                                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                                                            <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#add> ;
+                                                                                                                                                                                                                            <http://www.w3.org/2003/11/swrl#arguments> ( :s1
+                                                                                                                                                                                                                                                                         :t1
+                                                                                                                                                                                                                                                                         :t2
+                                                                                                                                                                                                                                                                       )
+                                                                                                                                                                                                                          ] ;
+                                                                                                                                                                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                                                                       <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#add> ;
+                                                                                                                                                                                                                                       <http://www.w3.org/2003/11/swrl#arguments> ( :s2
+                                                                                                                                                                                                                                                                                    :s1
+                                                                                                                                                                                                                                                                                    :t3
+                                                                                                                                                                                                                                                                                  )
+                                                                                                                                                                                                                                     ] ;
+                                                                                                                                                                                                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                                                                                  <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#add> ;
+                                                                                                                                                                                                                                                  <http://www.w3.org/2003/11/swrl#arguments> ( :s3
+                                                                                                                                                                                                                                                                                               :s2
+                                                                                                                                                                                                                                                                                               :t4
+                                                                                                                                                                                                                                                                                             )
+                                                                                                                                                                                                                                                ] ;
+                                                                                                                                                                                                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                                                                                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                                                                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#add> ;
+                                                                                                                                                                                                                                                             <http://www.w3.org/2003/11/swrl#arguments> ( :F
+                                                                                                                                                                                                                                                                                                          :s3
+                                                                                                                                                                                                                                                                                                          :t5
+                                                                                                                                                                                                                                                                                                        )
+                                                                                                                                                                                                                                                           ] ;
+                                                                                                                                                                                                                                                 rdf:rest rdf:nil
+                                                                                                                                                                                                                                               ]
+                                                                                                                                                                                                                                    ]
+                                                                                                                                                                                                                         ]
+                                                                                                                                                                                                              ]
+                                                                                                                                                                                                   ]
+                                                                                                                                                                                        ]
+                                                                                                                                                                             ]
+                                                                                                                                                                  ]
+                                                                                                                                                       ]
+                                                                                                                                            ]
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_indicator_comprehensive ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> :F
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :priority_score ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :x ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :F
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
